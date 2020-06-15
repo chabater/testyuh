@@ -1,18 +1,10 @@
 # testyuh
 
-[Unit]
-Description=Zookeeper
-Requires=network.target remote-fs.target
-After=network.target remote-fs.target
+    - name: check swap full name
+      shell: "lsblk -fp | grep swap | awk '{print $1}' | sed 's/^..//g'"
+      register: swap_full_name
+      ignore_errors: yes
 
-[Service]
-Type=forking
-User=kafka
-Group=kafka
-ExecStart=/appool/zookeeper/bin/zkServer.sh start
-ExecStop=/appool/zookeeper/bin/zkServer.sh stop
-ExecReload=/appool/zookeeper/bin/zkServer.sh restart
-WorkingDirectory=/appool/zookeeper
-
-[Install]
-WantedBy=multi-user.target
+    - name: swap off
+      command: swapoff {{swap_full_name.stdout}}
+      ignore_errors: yes
