@@ -1,3 +1,6 @@
 # testyuh
 
-listener.security.protocol.map=PLAINTEXT:PLAINTEXT,SSL:SSL,SASL_PLAINTEXT:SASL_PLAINTEXT,SASL_SSL:SASL_SSL
+delete.topic.enable=true
+auto.create.topics.enable=false
+unclean.leader.election.enable=true
+min.insync.replicas=1
