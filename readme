@@ -1,0 +1,28 @@
+PS C:\ProgramData\kind> .\kind-windows-amd64.exe create cluster
+Creating cluster "kind" ...
+ • Ensuring node image (kindest/node:v1.24.0) 🖼  ...
+ERROR: failed to create cluster: failed to ensure docker network: command "docker network create -d=bridge -o com.docker.network.bridge.enable_ip_masquerade=true --ipv6 --subnet fc00:f853:ccd:e793::/64 kind" failed with error: exit status 1
+
+Command Output: Error response from daemon: could not find plugin bridge in v1 plugin registry: plugin not found
+PS C:\ProgramData\kind> docker network create --driver nat network-name
+3b55af3417f39f802d5c89dd8ccacc4c67aedbe34e539b258936fbbb8bd66fe8
+PS C:\ProgramData\kind> .\kind-windows-amd64.exe create cluster
+Creating cluster "kind" ...
+ • Ensuring node image (kindest/node:v1.24.0) 🖼  ...
+ERROR: failed to create cluster: failed to ensure docker network: command "docker network create -d=bridge -o com.docker.network.bridge.enable_ip_masquerade=true --ipv6 --subnet fc00:f853:ccd:e793::/64 kind" failed with error: exit status 1
+
+Command Output: Error response from daemon: could not find plugin bridge in v1 plugin registry: plugin not found
+PS C:\ProgramData\kind> docker run nginx
+Unable to find image 'nginx:latest' locally
+latest: Pulling from library/nginx
+461246efe0a7: Pull complete
+060bfa6be22e: Pull complete
+b34d5ba6fa9e: Pull complete
+8128ac56c745: Pull complete
+44d36245a8c9: Pull complete
+ebcc2cc821e6: Pull complete
+Digest: sha256:bd06dfe1f8f7758debd49d3876023992d41842fd8921565aed315a678a309982
+Status: Downloaded newer image for nginx:latest
+docker: Error response from daemon: failed to start service utility VM (createreadwrite): kernel 'C:\Program Files\Linux Containers\kernel' not found.
+See 'docker run --help'.
+PS C:\ProgramData\kind>
